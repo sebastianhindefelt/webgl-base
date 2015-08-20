@@ -6,7 +6,7 @@
 var ebbs = ebbs || {};
 ebbs.mesh = ebbs.mesh || {};
 
-ebbs.mesh.createMesh = function(width,height,material) 
+ebbs.mesh.createMesh = function(width,height,material,offset) 
 {
 	var geometry = new THREE.Geometry();
 	material.side = THREE.FrontSide;
@@ -14,7 +14,7 @@ ebbs.mesh.createMesh = function(width,height,material)
 	// Create mesh vertices
 	for(var i = 0; i < width; i++){
 		for(var j = 0; j < height; j++){
-			geometry.vertices.push( new THREE.Vector3(i,0,j) );
+			geometry.vertices.push( new THREE.Vector3(i+offset.x,offset.y,j+offset.z) );
 		}
 	}
 	
